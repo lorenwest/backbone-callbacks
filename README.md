@@ -1,4 +1,4 @@
-# Anonymous callback style interface for Backbone.js async methods
+## Anonymous callback style interface for Backbone.js async methods
 
 Load this after Backbone.js to add an anonymous function callback style interface for fetch(), save(), and destroy() in addition to the built-in success/error style interface.
 
