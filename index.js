@@ -36,7 +36,7 @@
    *
    * @class BackboneCallbacks
    */
-  var BackboneCallbacks = function(method) {
+  var BackboneCallbacks = module.exports = function(methodName, method) {
     return function() {
 
       // Connect the success/error methods for callback style requests.
@@ -45,30 +45,49 @@
       var args = _.toArray(arguments), callback = args[args.length - 1];
       if (typeof callback === 'function') {
 
-        // Rewrite args if no options were passed
-        if (args.length === 1) {
-          args = [{}, callback];
+        // Remove the last element (the callback)
+        args.splice(-1, 1);
+
+        // Place options if none were specified.
+        if (args.length === 0 || (args.length === 1 && methodName === 'save')) {
+          args.push({});
         }
-        var options = args[args.length - 2];
-        if (!options) {
-          options = args[args.length - 2] = {};
-        }
-        options.success = function(model, response) {callback(null, response);};
-        options.error = function(model, response) {callback(response, null);};
+        var options = args[args.length - 1];
+
+        // Place the success and error methods
+        options.success = function(model, response) {
+          callback(null, response);
+        };
+        options.error = function(model, response) {
+          callback(response, null);
+        };
       }
 
       // Invoke the original method
-      method.apply(this, args);
+      return method.apply(this, args);
     };
   };
 
-  // Shim the original methods to allow the alternate calling style
-  _.each(['save','destroy','fetch'], function(method) {
-    Backbone.Model.prototype[method] = new BackboneCallbacks(Backbone.Model.prototype[method]);
-  });
-  _.each(['fetch'], function(method) {
-    Backbone.Collection.prototype[method] = new BackboneCallbacks(Backbone.Collection.prototype[method]);
-  });
+  /**
+  * Attach the shims to the specified Backbone library
+  *
+  *     var Backbone = require('backbone');
+  *     require('backbone-callbacks').attach(Backbone);
+  *
+  * @static
+  * @method attach
+  * @param library {Backbone} Backbone library to attach to
+  */
+  BackboneCallbacks.attach = function(library) {
+
+    // Shim the original methods to allow the alternate calling style
+    _.each(['save','destroy','fetch'], function(methodName) {
+      Backbone.Model.prototype[methodName] = new BackboneCallbacks(methodName, library.Model.prototype[methodName]);
+    });
+    _.each(['fetch'], function(methodName) {
+      Backbone.Collection.prototype[methodName] = new BackboneCallbacks(methodName, library.Collection.prototype[methodName]);
+    });
+
+  };
 
 }(this));
-
