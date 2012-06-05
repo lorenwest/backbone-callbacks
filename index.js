@@ -82,12 +82,12 @@
 
     // Shim the original methods to allow the alternate calling style
     _.each(['save','destroy','fetch'], function(methodName) {
-      Backbone.Model.prototype[methodName] = new BackboneCallbacks(methodName, library.Model.prototype[methodName]);
+      library.Model.prototype[methodName] = new BackboneCallbacks(methodName, library.Model.prototype[methodName]);
     });
     _.each(['fetch'], function(methodName) {
-      Backbone.Collection.prototype[methodName] = new BackboneCallbacks(methodName, library.Collection.prototype[methodName]);
+      library.Collection.prototype[methodName] = new BackboneCallbacks(methodName, library.Collection.prototype[methodName]);
     });
-
+console.log("Callbacks ATTACHED");
   };
 
 }(this));
