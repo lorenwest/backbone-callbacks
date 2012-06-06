@@ -11,7 +11,7 @@
 
   // Build a mock sync for testing.  This just returns the
   // method name into the result parameter to verify the call.
-  // It returns an error if options.errorTest is set.
+  // For error testing, it returns an error if the method is 'read'.
   Backbone.sync = function(method, model, options) {
     if (method === 'read') {
       return options.error({msg: 'Error test'});
