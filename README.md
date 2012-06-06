@@ -18,7 +18,7 @@ This library adds a simpler node.js style callback interface for these methods:
 
 To use this libary:
 
-1) Download using the above links, or ```npm install backbone-callbacks```
+1) Download from github, or ```npm install backbone-callbacks```
 
 2) Attach the interfaces to Backbone in your initialization script:
 
