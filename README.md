@@ -1,18 +1,31 @@
-## Anonymous callback style interface for Backbone.js async methods
+## Anonymous callback interface for Backbone.js async methods
 
-Load this after Backbone.js to add an anonymous function callback style interface for fetch(), save(), and destroy() in addition to the built-in success/error style interface.
+[Backbone.js](http://documentcloud.github.com/backbone>Backbone.js) exposes a success/error style callback interface to the asynchronous methods ```fetch```, ```save```, and ```destroy```.  Example:
 
-This adds a shim to the existing interface, allowing either style to be used.  If a callback function is provided as the last argument, it will use that callback style.  Otherwise it will use the success/error style.
-
-Example:
-
-    customer.save(attrs, options, function(error, response) {
-      if (error) {
-        return console.log('Error saving customer', error);
+    myModel.fetch({success: function(){
+        ...
+      },
+      error: function(){
+        ...
       }
-      console.log('Customer save successful.  Response:', response);
     });
 
-The callback gets two arguments - an error object and response object.  One or the other will be set based on an error condition.
+This library adds a simpler node.js style callback interface for these methods:
 
-The motivation for this callback style is to offer Backbone.js clients a common coding style for client-side and server-side applications.
+    myModel.fetch(function(error) {
+     ...
+    });
+
+To use this libary:
+
+1) Download using the above links, or ```npm install backbone-callbacks```
+2) Attach the interfaces to Backbone in your initialization script:
+
+    // In a browser...
+    BackboneCallbacks.attach(Backbone);
+
+    // In node.js...
+    var Backbone = require('backbone');
+    require('backbone-callbacks').attach(Backbone);
+
+This adds a shim to the existing interface, allowing either style to be used.  If a callback function is provided as the last argument, it will use the simpler style.  Otherwise it will use the original success/error style.

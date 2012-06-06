@@ -7,7 +7,7 @@
   // Dependencies
   var Backbone = root.Backbone || require('backbone'),
       _ = root._ || require('underscore'),
-      BackboneCallbacks = root.BackboneCallbacks || require('../index');
+      BackboneCallbacks = root.BackboneCallbacks || require('../backbone-callbacks');
 
   // Build a mock sync for testing.  This just returns the
   // method name into the result parameter to verify the call.
@@ -17,7 +17,7 @@
       return options.error({msg: 'Error test'});
     }
     return options.success({method: method});
-  }
+  };
 
   /**
   * Unit tests for the <a href="BackboneCallbacks.html">BackboneCallbacks</a> functions.
@@ -69,10 +69,10 @@
       model.save({a:'b'}, function(error, response) {
         test.ok(!error, 'Save callback successful');
         model.fetch(function(error, response) {
-          test.ok(error, 'Error callback successful.')
-          test.ok(!response, 'Isnt this nice?')
+          test.ok(error, 'Error callback successful.');
+          test.ok(!response, 'Isnt this nice?');
           test.done();
-        })
+        });
       });
     }
 
