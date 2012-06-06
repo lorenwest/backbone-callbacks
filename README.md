@@ -29,4 +29,4 @@ To use this libary:
     var Backbone = require('backbone');
     require('backbone-callbacks').attach(Backbone);
 
-This small library (under 1k) adds to the existing interface, allowing either style to be used.  If a callback function is provided as the last argument, it will use the simpler style.  Otherwise it will use the original success/error style.
+This small library _(under 1k)_ adds to the existing interface, allowing either style to be used.  If a callback function is provided as the last argument, it will use the simpler style.  Otherwise it will use the original ```success/error``` style.
