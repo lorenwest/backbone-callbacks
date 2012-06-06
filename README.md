@@ -2,17 +2,17 @@
 
 [Backbone.js](http://documentcloud.github.com/backbone>Backbone.js) exposes a ```success/error``` style callback interface to the asynchronous methods ```fetch```, ```save```, and ```destroy```.  Example:
 
-    myModel.fetch({success: function() {
+    myModel.fetch({success: function(model, response) {
         ...
       },
-      error: function() {
+      error: function(model, response) {
         ...
       }
     });
 
 This library adds a simpler node.js style callback interface for these methods:
 
-    myModel.fetch(function(error) {
+    myModel.fetch(function(error, response) {
      ...
     });
 
