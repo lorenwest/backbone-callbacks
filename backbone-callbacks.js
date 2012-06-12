@@ -49,7 +49,12 @@
         args.splice(-1, 1);
 
         // Place options if none were specified.
-        if (args.length === 0 || (args.length === 1 && methodName === 'save')) {
+        if (args.length === 0) {
+          args.push({});
+        }
+
+        // Place attributes if save and only options were specified
+        if (args.length === 1 && methodName === 'save') {
           args.push({});
         }
         var options = args[args.length - 1];
