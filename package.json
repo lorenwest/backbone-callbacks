@@ -1,6 +1,6 @@
 {
   "name": "backbone-callbacks",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./backbone-callbacks.js",
   "description": "Anonymous callback style interface for Backbone.js async methods",
   "author": "Loren West <open_source@lorenwest.com>",
