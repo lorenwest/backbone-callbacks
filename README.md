@@ -10,11 +10,16 @@
       }
     });
 
-This library adds a simpler node.js style callback interface for these methods:
+If you're using Node.js and use your Backbone models on the client as well as the server,
+you may want to interact with your models in more of a Node.js async callback style:
 
     myModel.fetch(function(error, response) {
      ...
     });
+
+This library adds the Node.js style callback interface to the Backbone asynchronous methods, allowing you to choose the style you prefer.
+
+If the call includes a function (callback) as the last argument, it uses that style.  Otherwise it uses the default Backbone success/error style.
 
 To use this libary:
 
