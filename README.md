@@ -17,9 +17,9 @@ you may want to interact with your models in more of a Node.js async callback st
      ...
     });
 
-This library adds the Node.js style callback interface to the Backbone asynchronous methods, allowing you to choose the style you prefer.
+This library adds to the existing interface for ```fetch```, ```save```, and ```destroy```, allowing you to choose the style you prefer.
 
-If the call includes a function (callback) as the last argument, it uses that style.  Otherwise it uses the default Backbone success/error style.
+If a callback function is provided as the last argument, it uses that style.  Otherwise it will use the default ```success/error``` style.
 
 To use this libary:
 
@@ -34,4 +34,3 @@ To use this libary:
     var Backbone = require('backbone');
     require('backbone-callbacks').attach(Backbone);
 
-This small library (under 1k) adds to the existing interface, allowing either style to be used.  If a callback function is provided as the last argument, it will use the simpler style.  Otherwise it will use the original ```success/error``` style.
