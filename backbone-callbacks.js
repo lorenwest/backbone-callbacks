@@ -75,7 +75,7 @@
   };
 
   // Expose as the module for CommonJS, and globally for the browser.
-  if (module && typeof module.exports !== 'undefined') {
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = BackboneCallbacks;
   } else {
     root.BackboneCallbacks = BackboneCallbacks;
