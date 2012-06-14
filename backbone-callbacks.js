@@ -65,8 +65,7 @@
         };
         options.error = function(model, response) {
           // Provide the response as the error.
-          // Also provide it in 2nd arg for callback consistency.
-          callback(response, response);
+          callback(response, null);
         };
       }
 
