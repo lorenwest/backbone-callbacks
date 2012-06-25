@@ -25,12 +25,5 @@ To use this libary:
 
 1) Download from github, or ```npm install backbone-callbacks```
 
-2) Attach the interfaces to Backbone in your initialization script:
-
-    // In a browser...
-    BackboneCallbacks.attach(Backbone);
-
-    // In node.js...
-    var Backbone = require('backbone');
-    require('backbone-callbacks').attach(Backbone);
+2) Include the library in your application.  Load it after Backbone.js on the browser, or require('backbone-callbacks') in Node.js
 
