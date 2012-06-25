@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Backbone-callbacks by lorenwest</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/lorenwest/backbone-callbacks">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Backbone-callbacks</h1>
+            <h2>Anonymous callback style interface for Backbone.js async methods</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/lorenwest/backbone-callbacks/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/lorenwest/backbone-callbacks/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h2>Anonymous callback interface for Backbone.js async methods</h2>
+
+<p><a href="http://documentcloud.github.com/backbone%3EBackbone.js">Backbone.js</a> exposes a <code>success/error</code> style callback interface to the asynchronous methods <code>fetch</code>, <code>save</code>, and <code>destroy</code>.  Example:</p>
+
+<pre><code>myModel.fetch({success: function(model, response) {
+    ...
+  },
+  error: function(model, response) {
+    ...
+  }
+});
+</code></pre>
+
+<p>If you're using Node.js and use your Backbone models on the client as well as the server,
+you may want to interact with your models in more of a Node.js async callback style:</p>
+
+<pre><code>myModel.fetch(function(error, response) {
+ ...
+});
+</code></pre>
+
+<p>This library adds to the existing interface for <code>fetch</code>, <code>save</code>, and <code>destroy</code>, allowing you to choose the style you prefer.</p>
+
+<p>If a callback function is provided as the last argument, it uses that style.  Otherwise it will use the default <code>success/error</code> style.</p>
+
+<p>To use this libary:</p>
+
+<p>1) Download from github, or <code>npm install backbone-callbacks</code></p>
+
+<p>2) Include the library in your application.  Load it after Backbone.js on the browser, or require('backbone-callbacks') in Node.js</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/lorenwest">lorenwest</a> can be found on <a href="https://github.com/lorenwest/backbone-callbacks">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
