@@ -82,9 +82,13 @@
   }
 
   /**
-  * Attach the shims to the specified Backbone library
+  * Attach the shims to a clean Backbone library
   *
-  *     var Backbone = require('backbone');
+  * Backbone-callbacks works automatically for the global Backbone.  If you have
+  * a clean version of Backbone (via Backbone.noConflict()) you can manually
+  * attach the backbone-callbacks functionality using this method.
+  *
+  *     var Backbone = require('backbone').noConflict();
   *     require('backbone-callbacks').attach(Backbone);
   *
   * @static
@@ -101,5 +105,8 @@
       library.Collection.prototype[methodName] = new BackboneCallbacks(methodName, library.Collection.prototype[methodName]);
     });
   };
+
+  // Automatically attach the shims to the global Backbone library
+  BackboneCallbacks.attach(Backbone);
 
 }(this));
