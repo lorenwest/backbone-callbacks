@@ -1,9 +1,12 @@
 {
   "name": "backbone-callbacks",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "./backbone-callbacks.js",
   "description": "Anonymous callback style interface for Backbone.js async methods",
-  "author": "Loren West <open_source@lorenwest.com>",
+  "author": {
+    "name": "Loren West",
+    "email": "open_source@lorenwest.com"
+  },
   "homepage": "http://lorenwest.github.com/backbone-callbacks/",
   "dependencies": {
     "underscore": "1.3.x",
@@ -12,8 +15,10 @@
   "devDependencies": {
     "grunt": "~0.3.6"
   },
-  "engines": {"node": ">0.4.x"},
+  "engines": {
+    "node": ">0.4.x"
+  },
   "scripts": {
-    "test" : "grunt test"
+    "test": "grunt test"
   }
 }
