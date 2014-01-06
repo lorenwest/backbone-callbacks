@@ -1,4 +1,4 @@
-// grunt.js (c) 2012 Loren West and other contributors
+// grunt.js (c) 2012-2014 Loren West and other contributors
 // Node-monitor may be freely distributed under the MIT license.
 // For all details and documentation:
 // http://lorenwest.github.com/backbone-callbacks
