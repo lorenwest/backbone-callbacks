@@ -8,6 +8,10 @@
     "email": "open_source@lorenwest.com"
   },
   "homepage": "http://lorenwest.github.com/backbone-callbacks/",
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/lorenwest/backbone-callbacks.git"
+  },
   "dependencies": {
     "underscore": ">=1.4.4 < 1.5.0",
     "backbone": ">=0.9.2 < 0.10.0"
